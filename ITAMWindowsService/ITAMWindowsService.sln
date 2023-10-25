@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAMWindowsService", "ITAMWindowsService.csproj", "{1A36DAA3-14E8-409A-ABCF-27D89BF5A1A4}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ITAMWindowsServiceInstaller", "..\ITAMWindowsServiceInstaller\ITAMWindowsServiceInstaller.vdproj", "{35A3DD42-F9A0-48E1-A02B-3ED47DA30539}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A36DAA3-14E8-409A-ABCF-27D89BF5A1A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A36DAA3-14E8-409A-ABCF-27D89BF5A1A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A36DAA3-14E8-409A-ABCF-27D89BF5A1A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A36DAA3-14E8-409A-ABCF-27D89BF5A1A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A3DD42-F9A0-48E1-A02B-3ED47DA30539}.Debug|Any CPU.ActiveCfg = Debug
+		{35A3DD42-F9A0-48E1-A02B-3ED47DA30539}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B927A433-EB73-4E77-A4A6-E856CAE2B79A}
+	EndGlobalSection
+EndGlobal
