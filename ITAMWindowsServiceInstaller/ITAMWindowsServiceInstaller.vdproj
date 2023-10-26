@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E534B8645D959A81F8793443002DC0D0"
+        "OwnerKey" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
+        "OwnerKey" = "8:_E534B8645D959A81F8793443002DC0D0"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +55,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -71,12 +87,84 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_37097CBD96B74D8A80968352595D0AC5"
+            {
+            "Name" = "8:Primary output from ITAMWindowsService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_CD671AE3_1CB2_4503_8B65_C5F25A703927"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_374DC9ECD1F44133A0CBF8954C61D358"
+            {
+            "Name" = "8:Primary output from ITAMWindowsService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_F1AA4E8F_35B2_4528_8E7A_3ECF4B0E0E73"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B73215F8EBD84CF48F4CC711E0BE8618"
+            {
+            "Name" = "8:Primary output from ITAMWindowsService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_262BCE78_E676_4845_ACE7_369C85D03968"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_BBEE382DB31D4DB79F1BCEF9BF7F3226"
+            {
+            "Name" = "8:Primary output from ITAMWindowsService (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_C36E4DC9D11949C8B12ABF23D90988AA"
+            "FileType" = "3:2"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_7E9274C0_1CF3_493B_BD78_6B15374B1A4C"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -188,11 +276,11 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ITAMWindowsServiceInstaller"
         "ProductCode" = "8:{FE22111F-4DAB-4976-A03C-3C0B68B14D81}"
-        "PackageCode" = "8:{EB8119EF-12DC-4683-B050-B9C38455FF96}"
+        "PackageCode" = "8:{7436928D-94BB-43AF-8D01-9CD286739DFD}"
         "UpgradeCode" = "8:{5EA0E00D-5B57-431C-8D45-7F0E9C317DFE}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"

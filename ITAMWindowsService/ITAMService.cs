@@ -115,7 +115,7 @@ namespace ITAMWindowsService
 
         public String GetDSN()
         {
-            string str = DecryptString(ConfigurationManager.ConnectionStrings["encryptKey"].ToString(), ConfigurationManager.ConnectionStrings["connectionstring"].ToString());
+            string str = DecryptString(ConfigurationManager.AppSettings["encryptKey"].ToString(), ConfigurationManager.AppSettings["connectionstring"].ToString());
             return str;
         }
 
@@ -135,10 +135,10 @@ namespace ITAMWindowsService
                     @RAMInGigabytes,
 		            @MACAddress, 
                     @LastLoggedIPAddress,
-                    @CPUID 
+                    @CPUID, 
                     @CPUSpeed, 
                     @NumberOfProcessors, 
-                    @NumberOfRAMSlots 
+                    @NumberOfRAMSlots, 
 		            @BuildingName,
                     @RoomNumber,
                     @AssetTypeID,
@@ -150,49 +150,49 @@ namespace ITAMWindowsService
             using (SqlConnection cn = new SqlConnection(GetDSN()))
             {
                 SqlCommand cmd = new SqlCommand(SQLStatement, cn);
-                SqlParameter sp = new SqlParameter("InventoryItentifierBarCode", SqlDbType.Int) { Value = null };
+                SqlParameter sp = new SqlParameter("InventoryIdentifierBarCode", SqlDbType.Int) { Value = 0 };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@Make", SqlDbType.VarChar, 32) { Value = GetManufacturer() };
+                sp = new SqlParameter("Make", SqlDbType.VarChar, 32) { Value = GetManufacturer() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@ModelNumber", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("ModelNumber", SqlDbType.VarChar, 32) { Value = GetModelNumber() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@AssignedUser", SqlDbType.VarChar, 32) { Value = Environment.UserName };
+                sp = new SqlParameter("AssignedUser", SqlDbType.VarChar, 32) { Value = Environment.UserName };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@SerialNumber", SqlDbType.VarChar, 32) { Value = GetSerialNumber() };
+                sp = new SqlParameter("SerialNumber", SqlDbType.VarChar, 32) { Value = GetSerialNumber() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@OSVersion", SqlDbType.VarChar, 32) { Value = Environment.OSVersion.ToString() };
+                sp = new SqlParameter("OSVersion", SqlDbType.VarChar, 32) { Value = Environment.OSVersion.ToString() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@OSLicenseNumber", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("OSLicenseNumber", SqlDbType.VarChar, 32) { Value = "" };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@MachineName", SqlDbType.VarChar, 32) { Value = Environment.MachineName };
+                sp = new SqlParameter("MachineName", SqlDbType.VarChar, 32) { Value = Environment.MachineName };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@LastLoggedInUser", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("LastLoggedInUser", SqlDbType.VarChar, 32) { Value = "" };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@RAMInGigabytes", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("RAMInGigabytes", SqlDbType.VarChar, 32) { Value = GetPhysicalMemory() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@MACAddress", SqlDbType.VarChar, 32) { Value = GetMACAddress() };
+                sp = new SqlParameter("MACAddress", SqlDbType.VarChar, 32) { Value = GetMACAddress() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@LastLoggedIPAddress", SqlDbType.VarChar, 32) { Value = GetLocalIpAddress() };
+                sp = new SqlParameter("LastLoggedIPAddress", SqlDbType.VarChar, 32) { Value = GetLocalIpAddress() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@CPUID", SqlDbType.VarChar, 32) { Value = GetProcessorId() };
+                sp = new SqlParameter("CPUID", SqlDbType.VarChar, 32) { Value = GetProcessorId() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@CPUSpeed", SqlDbType.VarChar, 32) { Value = GetCpuSpeedInGHz().ToString() };
+                sp = new SqlParameter("CPUSpeed", SqlDbType.VarChar, 32) { Value = GetCpuSpeedInGHz().ToString() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@NumberOfProcessors", SqlDbType.Int) { Value = Environment.ProcessorCount.ToString() };
+                sp = new SqlParameter("NumberOfProcessors", SqlDbType.Int) { Value = Environment.ProcessorCount.ToString() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@NumberOfRAMSlots", SqlDbType.Int) { Value = GetNoRamSlots() };
+                sp = new SqlParameter("NumberOfRAMSlots", SqlDbType.Int) { Value = GetNoRamSlots() };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@BuildingName", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("BuildingName", SqlDbType.VarChar, 32) { Value = "" };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@RoomNumber", SqlDbType.VarChar, 32) { Value = "" };
+                sp = new SqlParameter("RoomNumber", SqlDbType.VarChar, 32) { Value = "" };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@AssetTypeID", SqlDbType.VarChar, 32) { Value = "2" };
+                sp = new SqlParameter("AssetTypeID", SqlDbType.VarChar, 32) { Value = "2" };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@CapitalItem", SqlDbType.Bit) { Value = null };
+                sp = new SqlParameter("CapitalItem", SqlDbType.Bit) { Value = 0 };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@PurchasedDate", SqlDbType.Date) { Value = null };
+                sp = new SqlParameter("PurchasedDate", SqlDbType.Date) { Value = DateTime.Now };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("@InventoryDate", SqlDbType.Date) { Value = null };
+                sp = new SqlParameter("InventoryDate", SqlDbType.Date) { Value = DateTime.Now };
                 cmd.Parameters.Add(sp);
 
                 cn.Open();
@@ -286,7 +286,7 @@ namespace ITAMWindowsService
                 liveMSize += livecap;
             }
             liveMSize = (liveMSize / 1024) / 1024 / 1024;
-            return liveMSize.ToString() + "GB";
+            return liveMSize.ToString();
         }
 
         public static double? GetCpuSpeedInGHz()

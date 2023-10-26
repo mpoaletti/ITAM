@@ -16,7 +16,7 @@ namespace ITAMWindowsService
         static void Main()
         {
             ServiceBase[] ServicesToRun;
-            Thread.Sleep(15000);
+            Thread.Sleep(25000);
             ServicesToRun = new ServiceBase[]
             {
                 new ITAMService()
