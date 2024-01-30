@@ -144,7 +144,8 @@ namespace ITAMWindowsService
                     @AssetTypeID,
                     @CapitalItem,
                     @PurchasedDate, 
-                    @InventoryDate
+                    @InventoryDate,
+                    @RecordGeneratedDate
 	            ";
 
             using (SqlConnection cn = new SqlConnection(GetDSN()))
@@ -190,9 +191,11 @@ namespace ITAMWindowsService
                 cmd.Parameters.Add(sp);
                 sp = new SqlParameter("CapitalItem", SqlDbType.Bit) { Value = 0 };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("PurchasedDate", SqlDbType.Date) { Value = DateTime.Now };
+                sp = new SqlParameter("PurchasedDate", SqlDbType.Date) { Value = null };
                 cmd.Parameters.Add(sp);
-                sp = new SqlParameter("InventoryDate", SqlDbType.Date) { Value = DateTime.Now };
+                sp = new SqlParameter("InventoryDate", SqlDbType.Date) { Value = null };
+                cmd.Parameters.Add(sp);
+                sp = new SqlParameter("RecordGeneratedDate", SqlDbType.Date) { Value = DateTime.Now };
                 cmd.Parameters.Add(sp);
 
                 cn.Open();
